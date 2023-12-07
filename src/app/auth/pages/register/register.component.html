@@ -1,0 +1,113 @@
+<div class="auth-wrapper">
+  <div class="auth-content">
+    <div class="auth-bg">
+      <span class="r"></span>
+      <span class="r s"></span>
+      <span class="r s"></span>
+      <span class="r"></span>
+    </div>
+    <div class="card">
+      <form [formGroup]="signupForm" class="card-body text-center">
+        <div class="mb-4">
+          <i class="feather icon-user-plus auth-icon"></i>
+        </div>
+        <h3 class="mb-4">Registrate</h3>
+        <div class="input-group mb-3">
+          <input
+            type="text"
+            formControlName="name"
+            class="form-control"
+            placeholder="Nombre"
+          />
+        </div>
+        <div class="input-group mb-3">
+          <input
+            type="email"
+            formControlName="email"
+            class="form-control"
+            placeholder="Email"
+          />
+        </div>
+        <div class="input-group mb-4">
+          <input
+            type="text"
+            formControlName="account_number"
+            class="form-control"
+            placeholder="Numero de cuenta"
+          />
+        </div>
+        <label for="gender" class="sr-only">Preference</label>
+        <div class="input-group mb-4">
+          <select class="form-select" formControlName="gender" id="gender">
+            <option selected>Genero</option>
+            <option value="m">Masculino</option>
+            <option value="f">Femenino</option>
+          </select>
+        </div>
+        <div class="input-group mb-4">
+          <input
+            type="number"
+            formControlName="career_years"
+            class="form-control"
+            placeholder="años en la carrera"
+          />
+        </div>
+        <div class="input-group mb-4">
+          <input
+            type="tel"
+            formControlName="contact_phone"
+            class="form-control"
+            placeholder="numero de contacto"
+          />
+        </div>
+        <label>Fecha de nacimiento</label>
+        <div class="input-group mb-4">
+          <input
+            type="number"
+            formControlName="day"
+            class="form-control"
+            placeholder="Dia"
+          />
+          <input
+            type="number"
+            formControlName="month"
+            class="form-control"
+            placeholder="Mes"
+          />
+          <input
+            type="number"
+            formControlName="year"
+            class="form-control"
+            placeholder="Año"
+          />
+        </div>
+        <label for="inscription">Año en el que ingreso a la carrera</label>
+        <div class="input-group mb-4">
+          <input
+            type="number"
+            formControlName="inscription_year"
+            class="form-control"
+            id="inscription"
+            placeholder="2015"
+          />
+        </div>
+        <div class="input-group mb-4">
+          <input
+            type="password"
+            formControlName="password"
+            class="form-control"
+            placeholder="Contraseña"
+          />
+        </div>
+
+        <button (click)="sendForm()" class="btn btn-primary shadow-2 mb-4">
+          Registrar
+        </button>
+        <p class="mb-0 text-muted">
+          ¿Ya tienes una cuenta?
+          <a [routerLink]="['/login']"> Inicia sesión</a>
+        </p>
+      </form>
+    </div>
+  </div>
+</div>
