@@ -7,7 +7,10 @@
       <span class="r"></span>
     </div>
     <div class="card">
-      <form [formGroup]="signupForm" class="card-body text-center">
+      <form
+        [formGroup]="signupForm"
+        class="card-body text-center needs-validation"
+      >
         <div class="mb-4">
           <i class="feather icon-user-plus auth-icon"></i>
         </div>
@@ -18,6 +21,9 @@
             formControlName="name"
             class="form-control"
             placeholder="Nombre"
+            [ngClass]="{
+              'is-invalid': signupForm.controls.name.invalid && showErrors
+            }"
           />
         </div>
         <div class="input-group mb-3">
@@ -26,6 +32,9 @@
             formControlName="email"
             class="form-control"
             placeholder="Email"
+            [ngClass]="{
+              'is-invalid': signupForm.controls.email.invalid && showErrors
+            }"
           />
         </div>
         <div class="input-group mb-4">
@@ -34,11 +43,22 @@
             formControlName="account_number"
             class="form-control"
             placeholder="Numero de cuenta"
+            [ngClass]="{
+              'is-invalid':
+                signupForm.controls.account_number.invalid && showErrors
+            }"
           />
         </div>
         <label for="gender" class="sr-only">Preference</label>
         <div class="input-group mb-4">
-          <select class="form-select" formControlName="gender" id="gender">
+          <select
+            class="form-select"
+            formControlName="gender"
+            id="gender"
+            [ngClass]="{
+              'is-invalid': signupForm.controls.gender.invalid && showErrors
+            }"
+          >
             <option selected>Genero</option>
             <option value="m">Masculino</option>
             <option value="f">Femenino</option>
@@ -50,6 +70,10 @@
             formControlName="career_years"
             class="form-control"
             placeholder="años en la carrera"
+            [ngClass]="{
+              'is-invalid':
+                signupForm.controls.career_years.invalid && showErrors
+            }"
           />
         </div>
         <div class="input-group mb-4">
@@ -58,6 +82,10 @@
             formControlName="contact_phone"
             class="form-control"
             placeholder="numero de contacto"
+            [ngClass]="{
+              'is-invalid':
+                signupForm.controls.contact_phone.invalid && showErrors
+            }"
           />
         </div>
         <label>Fecha de nacimiento</label>
@@ -67,18 +95,27 @@
             formControlName="day"
             class="form-control"
             placeholder="Dia"
+            [ngClass]="{
+              'is-invalid': signupForm.controls.day.invalid && showErrors
+            }"
           />
           <input
             type="number"
             formControlName="month"
             class="form-control"
             placeholder="Mes"
+            [ngClass]="{
+              'is-invalid': signupForm.controls.month.invalid && showErrors
+            }"
           />
           <input
             type="number"
             formControlName="year"
             class="form-control"
             placeholder="Año"
+            [ngClass]="{
+              'is-invalid': signupForm.controls.year.invalid && showErrors
+            }"
           />
         </div>
         <label for="inscription">Año en el que ingreso a la carrera</label>
@@ -89,6 +126,10 @@
             class="form-control"
             id="inscription"
             placeholder="2015"
+            [ngClass]="{
+              'is-invalid':
+                signupForm.controls.inscription_year.invalid && showErrors
+            }"
           />
         </div>
         <div class="input-group mb-4">
@@ -97,6 +138,9 @@
             formControlName="password"
             class="form-control"
             placeholder="Contraseña"
+            [ngClass]="{
+              'is-invalid': signupForm.controls.password.invalid && showErrors
+            }"
           />
         </div>
 

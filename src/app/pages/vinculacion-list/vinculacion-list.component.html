@@ -1,0 +1,59 @@
+<app-card
+  cardTitle="Recent Users"
+  cardClass="Recent-Users"
+  blockClass="px-0 py-3"
+  [options]="false"
+  cardTitle="Vinculaciones disponibles"
+>
+  <div class="table-responsive">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Descripcion</th>
+          <th>Fecha de inicio</th>
+          <th>Estudiantes inscritos</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="unread" *ngFor="let vinculacion of vinculaciones">
+          <td>
+            {{ vinculacion.name }}
+          </td>
+          <td>
+            <p class="m-0">{{ vinculacion.description }}</p>
+          </td>
+          <td>
+            <h6 class="text-muted">
+              {{ vinculacion.start_date | date }}
+            </h6>
+          </td>
+          <td>
+            <h6 class="">
+              {{ vinculacion.students.length }} /
+              {{ vinculacion.students_limit }}
+            </h6>
+          </td>
+          <td>
+            <button
+              *ngIf="!isSusbcribe(vinculacion); else badge"
+              (click)="onSuscribeClick(vinculacion._id)"
+              class="label btn theme-bg2 text-white f-12 rounded-pill"
+            >
+              Inscribirse
+            </button>
+
+            <ng-template #badge>
+              <span class="badge m-r-5 bg-success">Inscrito</span>
+            </ng-template>
+            <!-- <a
+              href="javascript:"
+              class="label theme-bg text-white f-12 rounded-pill"
+              >Approve</a
+            > -->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</app-card>

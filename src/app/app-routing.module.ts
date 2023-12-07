@@ -3,20 +3,21 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminComponent } from './theme/layout/admin/admin.component';
 import { GuestComponent } from './theme/layout/guest/guest.component';
 import { authRoutes } from './auth/auth.routes';
+import { authGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'dashboard',
     component: AdminComponent,
+    canActivate: [authGuard],
     children: [
       {
-        path: '',
-        redirectTo: 'dashboard',
-        pathMatch: 'full',
-      },
-      {
-        path: 'dashboard',
-        loadComponent: () => import('./demo/dashboard/dashboard.component'),
+        path: 'vinculaciones',
+        canActivate: [authGuard],
+        loadComponent: () =>
+          import('./pages/vinculacion-list/vinculacion-list.component').then(
+            (c) => c.VinculacionListComponent,
+          ),
       },
       {
         path: 'basic',

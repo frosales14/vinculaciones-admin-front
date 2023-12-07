@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { LoginCredentials } from 'src/app/models/interfaces/login.interface';
@@ -14,6 +14,7 @@ import { LoginCredentials } from 'src/app/models/interfaces/login.interface';
 })
 export class LoginComponent {
   private fb = inject(FormBuilder);
+  private router = inject(Router);
   private authService = inject(AuthService);
 
   public loginForm = this.fb.group({
@@ -28,7 +29,7 @@ export class LoginComponent {
 
     this.authService.login(credentials).subscribe({
       next: (response) => {
-        console.log(response);
+        this.router.navigateByUrl('/dashboard');
       },
     });
   }

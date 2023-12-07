@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { NgbDropdownConfig } from '@ng-bootstrap/ng-bootstrap';
 import { animate, style, transition, trigger } from '@angular/animations';
+import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-right',
@@ -29,9 +31,14 @@ import { animate, style, transition, trigger } from '@angular/animations';
   ],
 })
 export class NavRightComponent {
+  private authService = inject(AuthService);
+  private router = inject(Router);
+
   visibleUserList: boolean;
   chatMessage: boolean;
   friendId: boolean;
+
+  public user$ = this.authService.user$;
 
   constructor(config: NgbDropdownConfig) {
     config.placement = 'bottom-right';
@@ -42,5 +49,10 @@ export class NavRightComponent {
   onChatToggle(friend_id) {
     this.friendId = friend_id;
     this.chatMessage = !this.chatMessage;
+  }
+
+  onLogoutClick() {
+    localStorage.removeItem('token');
+    this.router.navigateByUrl('/login');
   }
 }
