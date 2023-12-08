@@ -1,10 +1,12 @@
-<div class="fixed-button active">
-  <!-- <a
-    href="https://codedthemes.com/item/datta-able-angular/"
+<div *ngIf="isAdmin" class="fixed-button active">
+  <a
+    (click)="onAddVinculacionClick()"
     target="_blank"
     class="btn btn-md btn-theme has-ripple"
   >
-    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-    Upgrade To Pro
-  </a> -->
+    <!-- <i class="fa fa-shopping-cart" ></i> -->
+    <!-- <i class="fa-solid fa-handshake-angle" ></i> -->
+    <i class="fas fa-hands-helping" aria-hidden="true"></i>
+    Agregar Vinculacion
+  </a>
 </div>

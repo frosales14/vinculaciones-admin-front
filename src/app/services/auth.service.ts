@@ -29,6 +29,10 @@ export class AuthService {
     return this.user.value._id;
   }
 
+  get roles(): string[] {
+    return this.user.value.rol;
+  }
+
   login(credentials: LoginCredentials) {
     const url = `${this.baseUrl}/auth/login`;
     return this.http.post<User>(url, credentials).pipe(

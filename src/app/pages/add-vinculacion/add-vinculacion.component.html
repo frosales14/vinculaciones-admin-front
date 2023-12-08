@@ -1,0 +1,136 @@
+<app-card
+  cardClass="vinculacion-form-card"
+  blockClass="px-3 py-3"
+  [options]="false"
+  cardTitle="Agregar Vinculacion"
+>
+  <form action="javascript:">
+    <div class="row mb-3">
+      <div class="form-group col-md-6">
+        <label for="inputEmail4">Nombre</label>
+        <input
+          type="text"
+          class="form-control"
+          id="inputEmail4"
+          placeholder="Nombre"
+        />
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputPassword4">Tipo</label>
+        <input
+          type="text"
+          class="form-control"
+          id="inputPassword4"
+          placeholder="Tipo de vinculacion"
+        />
+      </div>
+    </div>
+    <div class="form-group row mb-3">
+      <div class="col-md-6">
+        <label for="inputAddress">Estado</label>
+        <select class="form-select">
+          <option value="">Seleccione uno</option>
+          <option value="En Planeacion">En Planeacion</option>
+          <option value="En Curso">En Curso</option>
+          <option value="Cancelada">Cancelada</option>
+          <option value="Finalizada">Finalizada</option>
+        </select>
+      </div>
+
+      <div class="col-md-6">
+        <label for="inputAddress2">Estudiante a cargo</label>
+        <input
+          type="text"
+          class="form-control"
+          id="inputAddress2"
+          placeholder="Nombre del estudiante"
+        />
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <label>Fecha de inicio</label>
+      <div class="input-group">
+        <input
+          type="number"
+          formControlName="day"
+          class="form-control"
+          placeholder="Dia"
+        />
+        <input
+          type="number"
+          formControlName="month"
+          class="form-control"
+          placeholder="Mes"
+        />
+        <input
+          type="number"
+          formControlName="year"
+          class="form-control"
+          placeholder="Año"
+        />
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <label>Fecha de finalización</label>
+      <div class="input-group">
+        <input
+          type="number"
+          formControlName="day"
+          class="form-control"
+          placeholder="Dia"
+        />
+        <input
+          type="number"
+          formControlName="month"
+          class="form-control"
+          placeholder="Mes"
+        />
+        <input
+          type="number"
+          formControlName="year"
+          class="form-control"
+          placeholder="Año"
+        />
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="form-group col-md-6">
+        <label for="inputEmail4">Horas asignadas</label>
+        <input
+          type="number"
+          class="form-control"
+          id="inputEmail4"
+          placeholder="5"
+        />
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputPassword4">Cantidad de estudiantes permitidos</label>
+        <input type="number" class="form-control" placeholder="T20" />
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="form-group">
+        <label for="inputEmail4">Presupuesto</label>
+        <input
+          type="number"
+          class="form-control"
+          id="inputEmail4"
+          placeholder="5"
+        />
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="form-group">
+        <label for="inputEmail4">DEscripcion</label>
+        <textarea class="form-control"></textarea>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-2">Agregar</button>
+  </form>
+</app-card>

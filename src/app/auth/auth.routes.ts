@@ -13,4 +13,9 @@ export const authRoutes: Routes = [
         (c) => c.RegisterComponent,
       ),
   },
+  {
+    path: '**',
+    redirectTo: 'login',
+    pathMatch: 'full',
+  },
 ];

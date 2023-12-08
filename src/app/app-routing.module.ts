@@ -20,6 +20,13 @@ const routes: Routes = [
           ),
       },
       {
+        path: 'agregar',
+        loadComponent: () =>
+          import('./pages/add-vinculacion/add-vinculacion.component').then(
+            (c) => c.AddVinculacionComponent,
+          ),
+      },
+      {
         path: 'basic',
         loadChildren: () =>
           import('./demo/ui-elements/ui-basic/ui-basic.module').then(
