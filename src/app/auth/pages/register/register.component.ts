@@ -52,7 +52,7 @@ export class RegisterComponent {
 
     this.authService.register(student).subscribe({
       next: (data) => {
-        this.router.navigateByUrl('dashboard/vinculaciones');
+        this.router.navigateByUrl('/vinculaciones/lista');
       },
     });
   }

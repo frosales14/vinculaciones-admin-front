@@ -1,7 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { NavigationItem } from '../../navigation';
 import { DattaConfig } from 'src/app/app-config';
 import { Location } from '@angular/common';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-nav-item',
@@ -12,8 +13,17 @@ export class NavItemComponent {
   @Input() item: NavigationItem;
   themeLayout: string;
 
-  constructor(private location: Location) {
+  private location = inject(Location);
+  private authService = inject(AuthService);
+
+  public roles = this.authService.roles;
+
+  constructor() {
     this.themeLayout = DattaConfig.layout;
+  }
+
+  public canShowItem(itemRoles: string[]) {
+    return this.roles.find((item) => itemRoles.includes(item));
   }
 
   closeOtherMenu(event) {

@@ -4,32 +4,34 @@
   [options]="false"
   cardTitle="Agregar Vinculacion"
 >
-  <form action="javascript:">
+  <form [formGroup]="createVinculacionForm" (submit)="onSubmitForm()">
     <div class="row mb-3">
       <div class="form-group col-md-6">
-        <label for="inputEmail4">Nombre</label>
+        <label for="name">Nombre</label>
         <input
           type="text"
           class="form-control"
-          id="inputEmail4"
+          id="name"
           placeholder="Nombre"
+          formControlName="name"
         />
       </div>
       <div class="form-group col-md-6">
-        <label for="inputPassword4">Tipo</label>
+        <label for="vinculacion-type">Tipo</label>
         <input
           type="text"
           class="form-control"
-          id="inputPassword4"
+          id="vinculacion-type"
           placeholder="Tipo de vinculacion"
+          formControlName="type"
         />
       </div>
     </div>
     <div class="form-group row mb-3">
       <div class="col-md-6">
-        <label for="inputAddress">Estado</label>
-        <select class="form-select">
-          <option value="">Seleccione uno</option>
+        <label for="state">Estado</label>
+        <select class="form-select" id="state" formControlName="state">
+          <option selected value="">Seleccione uno</option>
           <option value="En Planeacion">En Planeacion</option>
           <option value="En Curso">En Curso</option>
           <option value="Cancelada">Cancelada</option>
@@ -38,12 +40,13 @@
       </div>
 
       <div class="col-md-6">
-        <label for="inputAddress2">Estudiante a cargo</label>
+        <label for="student">Estudiante a cargo</label>
         <input
           type="text"
           class="form-control"
-          id="inputAddress2"
+          id="student"
           placeholder="Nombre del estudiante"
+          formControlName="atCharge"
         />
       </div>
     </div>
@@ -56,18 +59,21 @@
           formControlName="day"
           class="form-control"
           placeholder="Dia"
+          formControlName="start_date_day"
         />
         <input
           type="number"
           formControlName="month"
           class="form-control"
           placeholder="Mes"
+          formControlName="start_date_month"
         />
         <input
           type="number"
           formControlName="year"
           class="form-control"
           placeholder="Año"
+          formControlName="start_date_year"
         />
       </div>
     </div>
@@ -80,57 +86,74 @@
           formControlName="day"
           class="form-control"
           placeholder="Dia"
+          formControlName="end_date_day"
         />
         <input
           type="number"
           formControlName="month"
           class="form-control"
           placeholder="Mes"
+          formControlName="end_date_month"
         />
         <input
           type="number"
           formControlName="year"
           class="form-control"
           placeholder="Año"
+          formControlName="end_date_year"
         />
       </div>
     </div>
 
     <div class="row mb-3">
-      <div class="form-group col-md-6">
-        <label for="inputEmail4">Horas asignadas</label>
+      <div class="form-group col-md-4">
+        <label for="hours">Horas asignadas</label>
         <input
           type="number"
           class="form-control"
-          id="inputEmail4"
+          id="hours"
           placeholder="5"
+          formControlName="hours"
         />
       </div>
-      <div class="form-group col-md-6">
-        <label for="inputPassword4">Cantidad de estudiantes permitidos</label>
-        <input type="number" class="form-control" placeholder="T20" />
-      </div>
-    </div>
-
-    <div class="row mb-3">
-      <div class="form-group">
-        <label for="inputEmail4">Presupuesto</label>
+      <div class="form-group col-md-4">
+        <label for="students_limit">Cantidad de estudiantes permitidos</label>
         <input
           type="number"
           class="form-control"
-          id="inputEmail4"
+          placeholder="20"
+          id="students_limit"
+          formControlName="students_limit"
+        />
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="budget">Presupuesto</label>
+        <input
+          type="number"
+          class="form-control"
+          id="budget"
           placeholder="5"
+          formControlName="budget"
         />
       </div>
     </div>
 
+    <div class="row mb-3"></div>
+
     <div class="row mb-3">
       <div class="form-group">
-        <label for="inputEmail4">DEscripcion</label>
-        <textarea class="form-control"></textarea>
+        <label for="desc">Descripcion</label>
+        <textarea
+          class="form-control"
+          id="dec"
+          formControlName="description"
+        ></textarea>
       </div>
     </div>
 
-    <button type="submit" class="btn btn-primary mt-2">Agregar</button>
+    <button type="submit" class="btn btn-primary mt-2">
+      {{ editMode ? "Guardar" : "Agregar" }}
+    </button>
   </form>
 </app-card>

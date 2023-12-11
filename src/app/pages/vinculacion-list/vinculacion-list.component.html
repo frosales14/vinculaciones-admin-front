@@ -39,4 +39,13 @@
       </ng-template>
     </div>
   </app-card>
+
+  <div
+    *ngIf="vinculaciones.length === 0"
+    class="alert alert-primary"
+    role="alert"
+  >
+    <i class="feather icon-alert-circle"></i>
+    De momento no hay vinculaciones disponibles a las que se pueda inscribir.
+  </div>
 </div>

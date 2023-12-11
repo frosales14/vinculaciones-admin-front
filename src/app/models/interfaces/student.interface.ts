@@ -32,3 +32,9 @@ export interface CreateStudent {
   birth_date?: string;
   inscription_year?: number;
 }
+
+export interface StudentInVinculacion {
+  _id: string;
+  name: string;
+  contact_phone: string;
+}

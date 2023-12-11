@@ -1,4 +1,8 @@
-<div *ngIf="isAdmin" class="fixed-button active">
+<div
+  *ngIf="isAdmin"
+  class="fixed-button active opacity-0 pe-none"
+  [ngClass]="{ 'opacity-100 pe-auto': showAddBtn }"
+>
   <a
     (click)="onAddVinculacionClick()"
     target="_blank"

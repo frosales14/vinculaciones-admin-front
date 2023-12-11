@@ -23,6 +23,7 @@ import { NavigationItem } from './theme/layout/admin/navigation/navigation';
 import { ToggleFullScreenDirective } from './theme/shared/components/full-screen/toggle-full-screen';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     ReactiveFormsModule,
     SharedModule,
     BrowserAnimationsModule,
+    ToastrModule.forRoot(),
   ],
   providers: [
     {

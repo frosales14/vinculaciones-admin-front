@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { DattaConfig } from '../../../../app-config';
 
 export interface NavigationItem {
   id: string;
@@ -19,6 +20,8 @@ export interface NavigationItem {
     type?: string;
   };
   children?: Navigation[];
+  DattaConfig;
+  rol: string[];
 }
 
 export interface Navigation extends NavigationItem {
@@ -30,15 +33,42 @@ const NavigationItems = [
     id: 'navigation',
     title: 'Navigation',
     type: 'group',
-    icon: 'icon-navigation',
+    icon: 'feather icon-calendar',
     children: [
       {
-        id: 'Vinculaciones',
-        title: 'Vinculaciones',
-        type: 'item',
-        url: '/dashboard/vinculaciones',
-        icon: 'feather icon-home',
-        classes: 'nav-item',
+        id: 'vinculaciones',
+        title: 'vinculaciones',
+        type: 'collapse',
+        icon: 'feather icon-link',
+        children: [
+          {
+            id: 'Vinculaciones',
+            title: 'Disponibles',
+            type: 'item',
+            url: '/vinculaciones/disponible',
+            icon: 'feather icon-clipboard',
+            classes: 'nav-item',
+            rol: ['student'],
+          },
+          {
+            id: 'Vinculaciones',
+            title: 'Agregar',
+            type: 'item',
+            url: '/vinculaciones/agregar',
+            icon: 'feather icon-plus',
+            classes: 'nav-item',
+            rol: ['admin'],
+          },
+          {
+            id: 'Vinculaciones',
+            title: 'Lista',
+            type: 'item',
+            url: '/vinculaciones/lista',
+            icon: 'feather icon-clipboard',
+            classes: 'nav-item',
+            rol: ['admin'],
+          },
+        ],
       },
     ],
   },

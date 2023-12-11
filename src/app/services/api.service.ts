@@ -1,7 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { Vinculacion } from '../models/interfaces/vinculacion.interface';
+import {
+  CreateVinculacion,
+  Vinculacion,
+} from '../models/interfaces/vinculacion.interface';
 import { AuthService } from './auth.service';
 
 @Injectable({
@@ -17,9 +20,24 @@ export class ApiService {
     return this.http.get<Vinculacion[]>(url);
   }
 
+  getVinculacionByID(id: string) {
+    const url = `${this.baseUrl}/vinculacion/${id}`;
+    return this.http.get(url);
+  }
+
   subscribeVinculalacion(vinculacionId) {
     const studentId = this.authService.studentId;
     const url = `${this.baseUrl}/vinculacion/update/students/${vinculacionId}/${studentId}`;
     return this.http.patch<Vinculacion[]>(url, {});
+  }
+
+  createVinculacion(vinculacionData: CreateVinculacion) {
+    const url = `${this.baseUrl}/vinculacion`;
+    return this.http.post(url, vinculacionData);
+  }
+
+  updateVinculacion(id: string, vinculacion: CreateVinculacion) {
+    const url = `${this.baseUrl}/vinculacion/${id}`;
+    return this.http.patch(url, vinculacion);
   }
 }

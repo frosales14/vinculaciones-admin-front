@@ -12,15 +12,7 @@ const routes: Routes = [
     canActivate: [authGuard],
     children: [
       {
-        path: 'vinculaciones',
-        canActivate: [authGuard],
-        loadComponent: () =>
-          import('./pages/vinculacion-list/vinculacion-list.component').then(
-            (c) => c.VinculacionListComponent,
-          ),
-      },
-      {
-        path: 'agregar',
+        path: 'agregar/:id',
         loadComponent: () =>
           import('./pages/add-vinculacion/add-vinculacion.component').then(
             (c) => c.AddVinculacionComponent,
@@ -56,6 +48,43 @@ const routes: Routes = [
         path: 'sample-page',
         loadComponent: () =>
           import('./demo/extra/sample-page/sample-page.component'),
+      },
+    ],
+  },
+  {
+    path: 'vinculaciones',
+    component: AdminComponent,
+    canActivate: [authGuard],
+    children: [
+      {
+        path: 'disponible',
+        canActivate: [authGuard],
+        loadComponent: () =>
+          import('./pages/vinculacion-list/vinculacion-list.component').then(
+            (c) => c.VinculacionListComponent,
+          ),
+      },
+      {
+        path: 'lista',
+        canActivate: [authGuard],
+        loadComponent: () =>
+          import('./pages/vinculacion-list/vinculacion-list.component').then(
+            (c) => c.VinculacionListComponent,
+          ),
+      },
+      {
+        path: 'agregar',
+        loadComponent: () =>
+          import('./pages/add-vinculacion/add-vinculacion.component').then(
+            (c) => c.AddVinculacionComponent,
+          ),
+      },
+      {
+        path: 'editar/:id',
+        loadComponent: () =>
+          import('./pages/add-vinculacion/add-vinculacion.component').then(
+            (c) => c.AddVinculacionComponent,
+          ),
       },
     ],
   },

@@ -6,6 +6,7 @@
   >
     <a
       class="nav-link"
+      *ngIf="canShowItem(item.rol)"
       [target]="item.target ? '_blank' : '_self'"
       [routerLink]="[item.url]"
       (click)="closeOtherMenu($event)"
