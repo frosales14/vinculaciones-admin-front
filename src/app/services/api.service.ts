@@ -6,6 +6,7 @@ import {
   Vinculacion,
 } from '../models/interfaces/vinculacion.interface';
 import { AuthService } from './auth.service';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -23,6 +24,11 @@ export class ApiService {
   getVinculacionByID(id: string) {
     const url = `${this.baseUrl}/vinculacion/${id}`;
     return this.http.get(url);
+  }
+
+  getAcumulatedHours(id: string): Observable<number> {
+    const url = `${this.baseUrl}/vinculacion/students/hours/${id}`;
+    return this.http.get<number>(url);
   }
 
   subscribeVinculalacion(vinculacionId) {

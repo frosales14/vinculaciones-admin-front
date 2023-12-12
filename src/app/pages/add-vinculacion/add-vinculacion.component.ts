@@ -8,7 +8,7 @@ import {
   Vinculacion,
 } from 'src/app/models/interfaces/vinculacion.interface';
 import { ToastrService } from 'ngx-toastr';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { filter, map, switchMap } from 'rxjs';
 
 @Component({
@@ -21,6 +21,7 @@ import { filter, map, switchMap } from 'rxjs';
 export class AddVinculacionComponent implements OnInit {
   private fb = inject(FormBuilder);
   private activatedRoute = inject(ActivatedRoute);
+  private router = inject(Router);
   private toastr = inject(ToastrService);
   private apiService = inject(ApiService);
 
@@ -56,6 +57,7 @@ export class AddVinculacionComponent implements OnInit {
   public vinculacion?: Vinculacion;
   public editMode = false;
   public editId = '';
+  public showErrors = false;
 
   ngOnInit(): void {
     this.getVinculacionInfo();
@@ -77,7 +79,10 @@ export class AddVinculacionComponent implements OnInit {
   }
 
   public onSubmitForm() {
-    if (this.createVinculacionForm.invalid) return;
+    if (this.createVinculacionForm.invalid) {
+      this.showErrors = true;
+      return;
+    }
 
     const {
       start_date_day,
@@ -99,6 +104,7 @@ export class AddVinculacionComponent implements OnInit {
     if (!this.editMode) {
       this.createVinculacion(vinculacion);
     } else {
+      vinculacion.students = [...this.vinculacion.students];
       this.editVinculacion(vinculacion);
     }
   }
@@ -116,6 +122,7 @@ export class AddVinculacionComponent implements OnInit {
     this.apiService.updateVinculacion(this.editId, vinculacion).subscribe({
       next: (data) => {
         this.toastr.success('Vinculacion editada exitosamente');
+        this.router.navigateByUrl('/vinculaciones/lista');
       },
     });
   }

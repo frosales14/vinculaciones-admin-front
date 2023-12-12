@@ -1,5 +1,35 @@
 <div class="row">
   <app-card
+    [hidHeader]="true"
+    class="col-12 col-md-6 col-lg-5"
+    cardClass="theme-bg2 text-light"
+    *ngIf="acumulatedHours$ | async as acumulatedHours"
+  >
+    <h6 class="mb-4 text-light">Horas Acumuladas</h6>
+    <div class="row d-flex align-items-center">
+      <div class="col-9">
+        <h3 class="f-w-300 d-flex align-items-center m-b-0 text-light">
+          <i class="feather icon-clock f-30 m-r-10 text-light"></i>
+          {{ acumulatedHours }} / 70
+        </h3>
+      </div>
+      <div class="col-3 text-end">
+        <p class="m-b-0">
+          {{ (acumulatedHours * 100) / 70 | number: "2.0-0" }} %
+        </p>
+      </div>
+    </div>
+    <div class="m-t-30">
+      <ngb-progressbar
+        type="info"
+        height="7px"
+        [value]="(acumulatedHours * 100) / 70"
+      ></ngb-progressbar>
+    </div>
+  </app-card>
+</div>
+<div class="row">
+  <app-card
     *ngFor="let vinculacion of vinculaciones"
     cardTitle="Recent Users"
     cardClass="Recent-Users"

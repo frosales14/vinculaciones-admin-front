@@ -14,6 +14,10 @@
           id="name"
           placeholder="Nombre"
           formControlName="name"
+          [ngClass]="{
+            'is-invalid':
+              createVinculacionForm.controls.name.invalid && showErrors
+          }"
         />
       </div>
       <div class="form-group col-md-6">
@@ -24,13 +28,25 @@
           id="vinculacion-type"
           placeholder="Tipo de vinculacion"
           formControlName="type"
+          [ngClass]="{
+            'is-invalid':
+              createVinculacionForm.controls.type.invalid && showErrors
+          }"
         />
       </div>
     </div>
     <div class="form-group row mb-3">
       <div class="col-md-6">
         <label for="state">Estado</label>
-        <select class="form-select" id="state" formControlName="state">
+        <select
+          class="form-select"
+          id="state"
+          formControlName="state"
+          [ngClass]="{
+            'is-invalid':
+              createVinculacionForm.controls.state.invalid && showErrors
+          }"
+        >
           <option selected value="">Seleccione uno</option>
           <option value="En Planeacion">En Planeacion</option>
           <option value="En Curso">En Curso</option>
@@ -47,6 +63,10 @@
           id="student"
           placeholder="Nombre del estudiante"
           formControlName="atCharge"
+          [ngClass]="{
+            'is-invalid':
+              createVinculacionForm.controls.atCharge.invalid && showErrors
+          }"
         />
       </div>
     </div>
@@ -60,6 +80,11 @@
           class="form-control"
           placeholder="Dia"
           formControlName="start_date_day"
+          [ngClass]="{
+            'is-invalid':
+              createVinculacionForm.controls.start_date_day.invalid &&
+              showErrors
+          }"
         />
         <input
           type="number"
@@ -67,6 +92,11 @@
           class="form-control"
           placeholder="Mes"
           formControlName="start_date_month"
+          [ngClass]="{
+            'is-invalid':
+              createVinculacionForm.controls.start_date_month.invalid &&
+              showErrors
+          }"
         />
         <input
           type="number"
@@ -74,6 +104,11 @@
           class="form-control"
           placeholder="Año"
           formControlName="start_date_year"
+          [ngClass]="{
+            'is-invalid':
+              createVinculacionForm.controls.start_date_year.invalid &&
+              showErrors
+          }"
         />
       </div>
     </div>
@@ -87,6 +122,10 @@
           class="form-control"
           placeholder="Dia"
           formControlName="end_date_day"
+          [ngClass]="{
+            'is-invalid':
+              createVinculacionForm.controls.end_date_day.invalid && showErrors
+          }"
         />
         <input
           type="number"
@@ -94,6 +133,11 @@
           class="form-control"
           placeholder="Mes"
           formControlName="end_date_month"
+          [ngClass]="{
+            'is-invalid':
+              createVinculacionForm.controls.end_date_month.invalid &&
+              showErrors
+          }"
         />
         <input
           type="number"
@@ -101,6 +145,10 @@
           class="form-control"
           placeholder="Año"
           formControlName="end_date_year"
+          [ngClass]="{
+            'is-invalid':
+              createVinculacionForm.controls.end_date_year.invalid && showErrors
+          }"
         />
       </div>
     </div>
@@ -114,6 +162,10 @@
           id="hours"
           placeholder="5"
           formControlName="hours"
+          [ngClass]="{
+            'is-invalid':
+              createVinculacionForm.controls.hours.invalid && showErrors
+          }"
         />
       </div>
       <div class="form-group col-md-4">
@@ -124,6 +176,11 @@
           placeholder="20"
           id="students_limit"
           formControlName="students_limit"
+          [ngClass]="{
+            'is-invalid':
+              createVinculacionForm.controls.students_limit.invalid &&
+              showErrors
+          }"
         />
       </div>
 
@@ -135,6 +192,10 @@
           id="budget"
           placeholder="5"
           formControlName="budget"
+          [ngClass]="{
+            'is-invalid':
+              createVinculacionForm.controls.budget.invalid && showErrors
+          }"
         />
       </div>
     </div>
@@ -148,6 +209,10 @@
           class="form-control"
           id="dec"
           formControlName="description"
+          [ngClass]="{
+            'is-invalid':
+              createVinculacionForm.controls.description.invalid && showErrors
+          }"
         ></textarea>
       </div>
     </div>

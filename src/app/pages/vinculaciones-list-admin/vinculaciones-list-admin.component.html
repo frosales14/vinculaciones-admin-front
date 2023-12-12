@@ -1,0 +1,50 @@
+<app-card
+  cardTitle="Recent Users"
+  cardClass="Recent-Users"
+  blockClass="px-0 py-3"
+  [options]="false"
+  cardTitle="Vinculaciones disponibles"
+>
+  <div class="table-responsive">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Descripcion</th>
+          <th>Fecha de inicio</th>
+          <th>Estudiantes inscritos</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          (click)="onVinculacionClick(vinculacion._id)"
+          class="unread"
+          role="button"
+          *ngFor="let vinculacion of vinculaciones"
+        >
+          <td>
+            {{ vinculacion.name }}
+          </td>
+          <td>
+            <p class="m-0 text-wrap">{{ vinculacion.description }}</p>
+          </td>
+          <td>
+            <h6 class="text-muted">
+              {{ vinculacion.start_date | date }}
+            </h6>
+          </td>
+          <td>
+            <h6 class="">
+              {{ vinculacion.students.length }} /
+              {{ vinculacion.students_limit }}
+            </h6>
+          </td>
+          <td>
+            {{ vinculacion.state }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</app-card>

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from 'src/app/theme/shared/shared.module';
 import { ApiService } from 'src/app/services/api.service';
 import { Vinculacion } from 'src/app/models/interfaces/vinculacion.interface';
-import { map, switchMap } from 'rxjs';
+import { map, switchMap, tap } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -22,6 +22,8 @@ export class VinculacionListComponent implements OnInit {
   public vinculaciones$ = this.apiService.getVinculaciones();
 
   public studentId = this.authService.studentId;
+
+  public acumulatedHours$ = this.apiService.getAcumulatedHours(this.studentId);
 
   ngOnInit(): void {
     this.getVinculaciones();

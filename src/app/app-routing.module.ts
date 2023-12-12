@@ -68,12 +68,13 @@ const routes: Routes = [
         path: 'lista',
         canActivate: [authGuard],
         loadComponent: () =>
-          import('./pages/vinculacion-list/vinculacion-list.component').then(
-            (c) => c.VinculacionListComponent,
-          ),
+          import(
+            './pages/vinculaciones-list-admin/vinculaciones-list-admin.component'
+          ).then((c) => c.VinculacionesListAdminComponent),
       },
       {
         path: 'agregar',
+        canActivate: [authGuard],
         loadComponent: () =>
           import('./pages/add-vinculacion/add-vinculacion.component').then(
             (c) => c.AddVinculacionComponent,
@@ -81,10 +82,24 @@ const routes: Routes = [
       },
       {
         path: 'editar/:id',
+        canActivate: [authGuard],
         loadComponent: () =>
           import('./pages/add-vinculacion/add-vinculacion.component').then(
             (c) => c.AddVinculacionComponent,
           ),
+      },
+      {
+        path: 'recursos',
+        canActivate: [authGuard],
+        loadComponent: () =>
+          import('./pages/resources/resources.component').then(
+            (c) => c.ResourcesComponent,
+          ),
+      },
+      {
+        path: '**',
+        redirectTo: '/vinculaciones',
+        pathMatch: 'full',
       },
     ],
   },
