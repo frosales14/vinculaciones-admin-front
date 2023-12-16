@@ -31,7 +31,12 @@ export class ApiService {
     return this.http.get<number>(url);
   }
 
-  subscribeVinculalacion(vinculacionId) {
+  getDashboard() {
+    const url = `${this.baseUrl}/vinculacion/dashboard/vinculacionesXState`;
+    return this.http.get(url);
+  }
+
+  subscribeVinculalacion(vinculacionId: string) {
     const studentId = this.authService.studentId;
     const url = `${this.baseUrl}/vinculacion/update/students/${vinculacionId}/${studentId}`;
     return this.http.patch<Vinculacion[]>(url, {});

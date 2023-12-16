@@ -29,7 +29,7 @@ export class LoginComponent {
 
     this.authService.login(credentials).subscribe({
       next: (response) => {
-        this.router.navigateByUrl('/vinculaciones/lista');
+        this.router.navigateByUrl('/vinculaciones/disponible');
       },
     });
   }

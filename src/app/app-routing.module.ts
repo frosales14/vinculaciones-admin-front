@@ -12,42 +12,12 @@ const routes: Routes = [
     canActivate: [authGuard],
     children: [
       {
-        path: 'agregar/:id',
+        path: '',
+        canActivate: [authGuard],
         loadComponent: () =>
-          import('./pages/add-vinculacion/add-vinculacion.component').then(
-            (c) => c.AddVinculacionComponent,
+          import('./pages/dashboard/dashboard.component').then(
+            (c) => c.DashboardComponent,
           ),
-      },
-      {
-        path: 'basic',
-        loadChildren: () =>
-          import('./demo/ui-elements/ui-basic/ui-basic.module').then(
-            (m) => m.UiBasicModule,
-          ),
-      },
-      {
-        path: 'forms',
-        loadChildren: () =>
-          import('./demo/pages/form-elements/form-elements.module').then(
-            (m) => m.FormElementsModule,
-          ),
-      },
-      {
-        path: 'tables',
-        loadChildren: () =>
-          import('./demo/pages/tables/tables.module').then(
-            (m) => m.TablesModule,
-          ),
-      },
-      {
-        path: 'apexchart',
-        loadComponent: () =>
-          import('./demo/chart/apex-chart/apex-chart.component'),
-      },
-      {
-        path: 'sample-page',
-        loadComponent: () =>
-          import('./demo/extra/sample-page/sample-page.component'),
       },
     ],
   },

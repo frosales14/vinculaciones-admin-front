@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col col-md-3">
+    <app-card cardTitle="Total Vinculaciones" [options]="false">
+      <span class="d-block text-center fs-1">{{ Vinculacionestotal }}</span>
+    </app-card>
+  </div>
+</div>
+<div class="row">
+  <div class="col col-md-6">
+    <app-card cardTitle="Vinculaciones por mes">
+      <apx-chart
+        [series]="barSimpleChart.series"
+        [chart]="barSimpleChart.chart"
+        [dataLabels]="barSimpleChart.dataLabels"
+        [plotOptions]="barSimpleChart.plotOptions"
+        [yaxis]="barSimpleChart.yaxis"
+        [legend]="barSimpleChart.legend"
+        [fill]="barSimpleChart.fill"
+        [stroke]="barSimpleChart.stroke"
+        [tooltip]="barSimpleChart.tooltip"
+        [xaxis]="barSimpleChart.xaxis"
+      ></apx-chart>
+    </app-card>
+  </div>
+  <div class="col col-md-6">
+    <app-card cardTitle="Vinculaciones por su estado">
+      <apx-chart
+        *ngIf="donutChart"
+        [series]="donutChart.series"
+        [chart]="donutChart.chart"
+        [labels]="donutChart.labels"
+        [colors]="donutChart.colors"
+        [legend]="donutChart.legend"
+        [dataLabels]="donutChart.dataLabels"
+        [plotOptions]="donutChart.plotOptions"
+      ></apx-chart>
+    </app-card>
+  </div>
+</div>

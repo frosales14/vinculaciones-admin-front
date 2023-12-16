@@ -1,224 +1,256 @@
-<app-card
-  cardClass="vinculacion-form-card"
-  blockClass="px-3 py-3"
-  [options]="false"
-  cardTitle="Agregar Vinculacion"
->
-  <form [formGroup]="createVinculacionForm" (submit)="onSubmitForm()">
-    <div class="row mb-3">
-      <div class="form-group col-md-6">
-        <label for="name">Nombre</label>
-        <input
-          type="text"
-          class="form-control"
-          id="name"
-          placeholder="Nombre"
-          formControlName="name"
-          [ngClass]="{
-            'is-invalid':
-              createVinculacionForm.controls.name.invalid && showErrors
-          }"
-        />
-      </div>
-      <div class="form-group col-md-6">
-        <label for="vinculacion-type">Tipo</label>
-        <input
-          type="text"
-          class="form-control"
-          id="vinculacion-type"
-          placeholder="Tipo de vinculacion"
-          formControlName="type"
-          [ngClass]="{
-            'is-invalid':
-              createVinculacionForm.controls.type.invalid && showErrors
-          }"
-        />
-      </div>
-    </div>
-    <div class="form-group row mb-3">
-      <div class="col-md-6">
-        <label for="state">Estado</label>
-        <select
-          class="form-select"
-          id="state"
-          formControlName="state"
-          [ngClass]="{
-            'is-invalid':
-              createVinculacionForm.controls.state.invalid && showErrors
-          }"
-        >
-          <option selected value="">Seleccione uno</option>
-          <option value="En Planeacion">En Planeacion</option>
-          <option value="En Curso">En Curso</option>
-          <option value="Cancelada">Cancelada</option>
-          <option value="Finalizada">Finalizada</option>
-        </select>
-      </div>
+<div class="row">
+  <div class="col" [ngClass]="{ 'col-lg-7': editMode }">
+    <app-card
+      cardClass="vinculacion-form-card"
+      blockClass="px-3 py-3"
+      [options]="false"
+      cardTitle="Agregar Vinculacion"
+    >
+      <form [formGroup]="createVinculacionForm" (submit)="onSubmitForm()">
+        <div class="row mb-3">
+          <div class="form-group col-md-6">
+            <label for="name">Nombre</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              placeholder="Nombre"
+              formControlName="name"
+              [ngClass]="{
+                'is-invalid':
+                  createVinculacionForm.controls.name.invalid && showErrors
+              }"
+            />
+          </div>
+          <div class="form-group col-md-6">
+            <label for="vinculacion-type">Tipo</label>
+            <input
+              type="text"
+              class="form-control"
+              id="vinculacion-type"
+              placeholder="Tipo de vinculacion"
+              formControlName="type"
+              [ngClass]="{
+                'is-invalid':
+                  createVinculacionForm.controls.type.invalid && showErrors
+              }"
+            />
+          </div>
+        </div>
+        <div class="form-group row mb-3">
+          <div class="col-md-6">
+            <label for="state">Estado</label>
+            <select
+              class="form-select"
+              id="state"
+              formControlName="state"
+              [ngClass]="{
+                'is-invalid':
+                  createVinculacionForm.controls.state.invalid && showErrors
+              }"
+            >
+              <option selected value="">Seleccione uno</option>
+              <option value="En Planeacion">En Planeacion</option>
+              <option value="En Curso">En Curso</option>
+              <option value="Cancelada">Cancelada</option>
+              <option value="Finalizada">Finalizada</option>
+            </select>
+          </div>
 
-      <div class="col-md-6">
-        <label for="student">Estudiante a cargo</label>
-        <input
-          type="text"
-          class="form-control"
-          id="student"
-          placeholder="Nombre del estudiante"
-          formControlName="atCharge"
-          [ngClass]="{
-            'is-invalid':
-              createVinculacionForm.controls.atCharge.invalid && showErrors
-          }"
-        />
-      </div>
-    </div>
+          <div class="col-md-6">
+            <label for="student">Estudiante a cargo</label>
+            <input
+              type="text"
+              class="form-control"
+              id="student"
+              placeholder="Nombre del estudiante"
+              formControlName="atCharge"
+              [ngClass]="{
+                'is-invalid':
+                  createVinculacionForm.controls.atCharge.invalid && showErrors
+              }"
+            />
+          </div>
+        </div>
 
-    <div class="mb-4">
-      <label>Fecha de inicio</label>
-      <div class="input-group">
-        <input
-          type="number"
-          formControlName="day"
-          class="form-control"
-          placeholder="Dia"
-          formControlName="start_date_day"
-          [ngClass]="{
-            'is-invalid':
-              createVinculacionForm.controls.start_date_day.invalid &&
-              showErrors
-          }"
-        />
-        <input
-          type="number"
-          formControlName="month"
-          class="form-control"
-          placeholder="Mes"
-          formControlName="start_date_month"
-          [ngClass]="{
-            'is-invalid':
-              createVinculacionForm.controls.start_date_month.invalid &&
-              showErrors
-          }"
-        />
-        <input
-          type="number"
-          formControlName="year"
-          class="form-control"
-          placeholder="Año"
-          formControlName="start_date_year"
-          [ngClass]="{
-            'is-invalid':
-              createVinculacionForm.controls.start_date_year.invalid &&
-              showErrors
-          }"
-        />
-      </div>
-    </div>
+        <div class="mb-4">
+          <label>Fecha de inicio</label>
+          <div class="input-group">
+            <input
+              type="number"
+              formControlName="day"
+              class="form-control"
+              placeholder="Dia"
+              formControlName="start_date_day"
+              [ngClass]="{
+                'is-invalid':
+                  createVinculacionForm.controls.start_date_day.invalid &&
+                  showErrors
+              }"
+            />
+            <input
+              type="number"
+              formControlName="month"
+              class="form-control"
+              placeholder="Mes"
+              formControlName="start_date_month"
+              [ngClass]="{
+                'is-invalid':
+                  createVinculacionForm.controls.start_date_month.invalid &&
+                  showErrors
+              }"
+            />
+            <input
+              type="number"
+              formControlName="year"
+              class="form-control"
+              placeholder="Año"
+              formControlName="start_date_year"
+              [ngClass]="{
+                'is-invalid':
+                  createVinculacionForm.controls.start_date_year.invalid &&
+                  showErrors
+              }"
+            />
+          </div>
+        </div>
 
-    <div class="mb-4">
-      <label>Fecha de finalización</label>
-      <div class="input-group">
-        <input
-          type="number"
-          formControlName="day"
-          class="form-control"
-          placeholder="Dia"
-          formControlName="end_date_day"
-          [ngClass]="{
-            'is-invalid':
-              createVinculacionForm.controls.end_date_day.invalid && showErrors
-          }"
-        />
-        <input
-          type="number"
-          formControlName="month"
-          class="form-control"
-          placeholder="Mes"
-          formControlName="end_date_month"
-          [ngClass]="{
-            'is-invalid':
-              createVinculacionForm.controls.end_date_month.invalid &&
-              showErrors
-          }"
-        />
-        <input
-          type="number"
-          formControlName="year"
-          class="form-control"
-          placeholder="Año"
-          formControlName="end_date_year"
-          [ngClass]="{
-            'is-invalid':
-              createVinculacionForm.controls.end_date_year.invalid && showErrors
-          }"
-        />
-      </div>
-    </div>
+        <div class="mb-4">
+          <label>Fecha de finalización</label>
+          <div class="input-group">
+            <input
+              type="number"
+              formControlName="day"
+              class="form-control"
+              placeholder="Dia"
+              formControlName="end_date_day"
+              [ngClass]="{
+                'is-invalid':
+                  createVinculacionForm.controls.end_date_day.invalid &&
+                  showErrors
+              }"
+            />
+            <input
+              type="number"
+              formControlName="month"
+              class="form-control"
+              placeholder="Mes"
+              formControlName="end_date_month"
+              [ngClass]="{
+                'is-invalid':
+                  createVinculacionForm.controls.end_date_month.invalid &&
+                  showErrors
+              }"
+            />
+            <input
+              type="number"
+              formControlName="year"
+              class="form-control"
+              placeholder="Año"
+              formControlName="end_date_year"
+              [ngClass]="{
+                'is-invalid':
+                  createVinculacionForm.controls.end_date_year.invalid &&
+                  showErrors
+              }"
+            />
+          </div>
+        </div>
 
-    <div class="row mb-3">
-      <div class="form-group col-md-4">
-        <label for="hours">Horas asignadas</label>
-        <input
-          type="number"
-          class="form-control"
-          id="hours"
-          placeholder="5"
-          formControlName="hours"
-          [ngClass]="{
-            'is-invalid':
-              createVinculacionForm.controls.hours.invalid && showErrors
-          }"
-        />
-      </div>
-      <div class="form-group col-md-4">
-        <label for="students_limit">Cantidad de estudiantes permitidos</label>
-        <input
-          type="number"
-          class="form-control"
-          placeholder="20"
-          id="students_limit"
-          formControlName="students_limit"
-          [ngClass]="{
-            'is-invalid':
-              createVinculacionForm.controls.students_limit.invalid &&
-              showErrors
-          }"
-        />
-      </div>
+        <div class="row mb-3">
+          <div class="form-group col-md-4">
+            <label for="hours">Horas asignadas</label>
+            <input
+              type="number"
+              class="form-control"
+              id="hours"
+              placeholder="5"
+              formControlName="hours"
+              [ngClass]="{
+                'is-invalid':
+                  createVinculacionForm.controls.hours.invalid && showErrors
+              }"
+            />
+          </div>
+          <div class="form-group col-md-4">
+            <label for="students_limit">Estudiantes permitidos</label>
+            <input
+              type="number"
+              class="form-control"
+              placeholder="20"
+              id="students_limit"
+              formControlName="students_limit"
+              [ngClass]="{
+                'is-invalid':
+                  createVinculacionForm.controls.students_limit.invalid &&
+                  showErrors
+              }"
+            />
+          </div>
 
-      <div class="form-group col-md-4">
-        <label for="budget">Presupuesto</label>
-        <input
-          type="number"
-          class="form-control"
-          id="budget"
-          placeholder="5"
-          formControlName="budget"
-          [ngClass]="{
-            'is-invalid':
-              createVinculacionForm.controls.budget.invalid && showErrors
-          }"
-        />
+          <div class="form-group col-md-4">
+            <label for="budget">Presupuesto</label>
+            <input
+              type="number"
+              class="form-control"
+              id="budget"
+              placeholder="5"
+              formControlName="budget"
+              [ngClass]="{
+                'is-invalid':
+                  createVinculacionForm.controls.budget.invalid && showErrors
+              }"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3"></div>
+
+        <div class="row mb-3">
+          <div class="form-group">
+            <label for="desc">Descripcion</label>
+            <textarea
+              class="form-control"
+              id="dec"
+              formControlName="description"
+              [ngClass]="{
+                'is-invalid':
+                  createVinculacionForm.controls.description.invalid &&
+                  showErrors
+              }"
+            ></textarea>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-2">
+          {{ editMode ? "Guardar" : "Agregar" }}
+        </button>
+      </form>
+    </app-card>
+  </div>
+
+  <div *ngIf="editMode" class="col">
+    <app-card
+      cardClass="estudiante-form-card"
+      blockClass="px-3 py-3"
+      [options]="false"
+      cardTitle="Estudiantes inscritos"
+    >
+      <div class="table table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <th>Nombre</th>
+            <th>Numero de contacto</th>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let student of students">
+              <td>{{ student.name }}</td>
+              <td>{{ student.contact_phone }}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-    </div>
-
-    <div class="row mb-3"></div>
-
-    <div class="row mb-3">
-      <div class="form-group">
-        <label for="desc">Descripcion</label>
-        <textarea
-          class="form-control"
-          id="dec"
-          formControlName="description"
-          [ngClass]="{
-            'is-invalid':
-              createVinculacionForm.controls.description.invalid && showErrors
-          }"
-        ></textarea>
-      </div>
-    </div>
-
-    <button type="submit" class="btn btn-primary mt-2">
-      {{ editMode ? "Guardar" : "Agregar" }}
-    </button>
-  </form>
-</app-card>
+    </app-card>
+  </div>
+</div>

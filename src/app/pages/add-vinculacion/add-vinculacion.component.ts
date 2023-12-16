@@ -10,6 +10,7 @@ import {
 import { ToastrService } from 'ngx-toastr';
 import { ActivatedRoute, Router } from '@angular/router';
 import { filter, map, switchMap } from 'rxjs';
+import { StudentInVinculacion } from 'src/app/models/interfaces/student.interface';
 
 @Component({
   selector: 'app-add-vinculacion',
@@ -58,6 +59,7 @@ export class AddVinculacionComponent implements OnInit {
   public editMode = false;
   public editId = '';
   public showErrors = false;
+  public students?: StudentInVinculacion[];
 
   ngOnInit(): void {
     this.getVinculacionInfo();
@@ -74,6 +76,7 @@ export class AddVinculacionComponent implements OnInit {
       )
       .subscribe((data: Vinculacion) => {
         this.setFormValues(data);
+        this.students = data.students;
         this.editMode = true;
       });
   }
